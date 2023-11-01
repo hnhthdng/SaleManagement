@@ -51,7 +51,7 @@ namespace SaleWebApp
                     MessageBox.Show("Login successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     frm.ShowDialog();
-                    this.Close();
+                    this.Show();
                     break;
                 }
             }
@@ -66,7 +66,7 @@ namespace SaleWebApp
                 MessageBox.Show("Login successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 frm.ShowDialog();
-                this.Close();
+                this.Show();
             }
             if (isMember == false)
             {

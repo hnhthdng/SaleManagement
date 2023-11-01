@@ -15,7 +15,6 @@ namespace SaleWebApp.OrderManagement
 {
     public partial class Member_OrderManagement : Form
     {
-        private OrderRepository orderRepository = new OrderRepository();
         private BindingSource source;
         private Member _member;
 

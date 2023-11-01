@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BusinessObject.Order>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <a asp-action="Index" asp-route-desc="desc">Sort Desc by Freight</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShippedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Freight)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiredTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freight)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+    <div>
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label class="control-label">Start Date: </label>
+            <input type="date" name="startDate" class="form-control" />
+            </div>
+
+            <div class="form-group">
+            <label class="control-label">End Date: </label>
+            <input type="date" name="endDate" class="form-control" />
+            </div>
+
+        <div class="form-group">
+            <input type="submit" value="Statistic" class="btn btn-primary" />
+        </div>
+            </form>
+    </div>
+

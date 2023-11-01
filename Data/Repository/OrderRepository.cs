@@ -1,4 +1,5 @@
 ﻿using BusinessObject;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +24,7 @@ namespace DataAccess.Repository
 
         public Order GetOrderbyId(int id) => AppDBContext.Instance.Orders.Where(g => g.OrderId == id).SingleOrDefault();
 
-        public IEnumerable<Order> GetOrders()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<Order> GetOrders() => AppDBContext.Instance.Orders.ToList();
 
         public IEnumerable<Order> GetOrdersByMemberId(int id) => AppDBContext.Instance.Orders.Where(g => g.MemberId == id).ToList();
 

@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BusinessObject
+namespace SaleWeb.ViewModels
 {
-    public class Member
+    public class CreateMemberViewModel
     {
-        [Key]
-        public int MemberId { get; set; }
-
         [Required(ErrorMessage = "Please enter your Email !")]
         [EmailAddress]
         public string Email { get; set; }
@@ -29,7 +22,5 @@ namespace BusinessObject
 
         [Required(ErrorMessage = "Please enter your Password !")]
         public string Password { get; set; }
-
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }
